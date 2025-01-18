@@ -72,10 +72,6 @@ A classe `AppLauncher` é o ponto de entrada do aplicativo. Ela inicializa e exi
 - Certifique-se de que a sua chave de API do OpenWeatherMap está configurada corretamente.
 - A API do OpenWeatherMap pode ter limitações de chamadas dependendo do seu plano (grátis ou pago).
 
-## Contribuições
-
-Se você deseja contribuir para o projeto, sinta-se à vontade para abrir um **pull request**. Todas as contribuições são bem-vindas!
-
 ---
 
 Obrigado por usar o **Atmos**!
