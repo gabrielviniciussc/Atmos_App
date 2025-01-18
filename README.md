@@ -1,47 +1,81 @@
-<h1>Weather App GUI</h1>
-<h2>Introduction</h2>
-<p>
-    The Weather App is a Java-based application that provides users with real-time weather information for a specified location. It fetches weather data from an external API and displays it in a graphical user interface (GUI). Users can enter a location, and the app retrieves and 
-    presents weather details, including temperature, weather condition, humidity, and wind speed. This documentation outlines the project's architecture, technologies used, and the functionality of each class within the application.
-</p>
+# Atmos - Previsão do Tempo
 
-<p>
-    You can check out the full tutorial where I will guide and you and explain the steps in this YouTube video: <a href="https://www.youtube.com/watch?v=8ZcEYv2ezWc">link</a>
-</p>
+O **Atmos** é um aplicativo de previsão do tempo que permite ao usuário buscar a previsão do clima para uma cidade específica. O aplicativo utiliza dados fornecidos pela API **OpenWeatherMap** para apresentar informações sobre a temperatura, condição climática, umidade e velocidade do vento.
 
-<p align="center">
-    <img src="https://github.com/curadProgrammer/WeatherAppGUI-Java/blob/main/Screenshot_15.png?raw=true" align="center">
-</p>
+## Estrutura do Projeto
 
-<h2>Technologies Used</h2>
-<p>
-    The Weather App utilizes the following technologies and libraries:
-</p>
-<ul>
-  <li>Java 18</li>
-  <li><a href="https://code.google.com/archive/p/json-simple/downloads">JSON Simple</a> - Used to parse and read through JSON data</li>
-  <li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.net/java/net/HttpURLConnection.html">HTTPURLConnection</a>: Java's built-in library for making HTTP requests to fetch data from external APIs.</li>
-</ul>
+Este projeto é composto por três componentes principais:
 
-<h2>Class Summaries</h2>
+### 1. **AtmosAppGui**
+A classe `AtmosAppGui` é a interface gráfica do usuário (GUI) do aplicativo. Ela é responsável por apresentar os dados de previsão do tempo para o usuário em uma janela gráfica.
 
-<h3>3.1. AppLauncher</h3>
-<p>
-    <strong>Description:</strong> The AppLauncher class serves as the entry point for the Weather App. It initializes the GUI and displays the main application window.
-</p>
+- **Funções principais**:
+  - Exibe uma janela com um campo de busca e um botão.
+  - O usuário insere o nome de uma cidade no campo de busca e clica em "Buscar".
+  - Após a consulta, os dados de clima são exibidos, incluindo a temperatura, condição climática, umidade e velocidade do vento.
 
-<h3>3.2. WeatherAppGui</h3>
-<p>
-    <strong>Description:</strong> The WeatherAppGui class represents the graphical user interface (GUI) of the Weather App. It is responsible for displaying weather information for a specified location.
-</p>
-<p>
-    <strong>Summary:</strong> This class handles the layout and display of GUI components, including text fields, labels, buttons, and images. It also implements the user interface for entering a location and updating the weather information based on user input.
-</p>
+### 2. **AtmosAppApi**
+A classe `AtmosAppApi` é responsável por fazer as requisições à API do **OpenWeatherMap** para obter os dados de clima para a cidade solicitada. Ela utiliza o nome da cidade inserido pelo usuário para buscar as informações no serviço de previsão do tempo e retorna esses dados no formato JSON.
 
-<h3>3.3. WeatherApp</h3>
-<p>
-    <strong>Description:</strong> The WeatherApp class contains the backend logic for fetching weather data from an external API. It retrieves geographic coordinates for a location, fetches weather data for that location, and provides methods to convert weather codes.
-</p>
-<p>
-    <strong>Summary:</strong> This class encapsulates the core functionality of the Weather App. It includes methods to fetch weather data and location coordinates, convert weather codes into readable weather conditions, and manage API requests. This class acts as the bridge between the GUI and the external weather data source, ensuring that weather information is retrieved and displayed accurately.
-</p>
+- **Funções principais**:
+  - Faz uma requisição HTTP para o OpenWeatherMap usando a chave de API.
+  - Processa a resposta JSON e extrai informações como a temperatura, condição climática, umidade e velocidade do vento.
+
+### 3. **AppLauncher**
+A classe `AppLauncher` é o ponto de entrada do aplicativo. Ela inicializa e exibe a interface gráfica do usuário (`AtmosAppGui`).
+
+- **Funções principais**:
+  - Cria uma instância da GUI (`AtmosAppGui`).
+  - Exibe a interface para o usuário interagir.
+
+## Como Testar o Aplicativo
+
+### Requisitos
+1. **Java 11 ou superior** deve estar instalado em seu sistema.
+2. **Biblioteca JSON Simple**: o projeto depende da biblioteca `json-simple-1.1.1.jar` para processar os dados JSON da API.
+3. **API Key do OpenWeatherMap**: Você precisará de uma chave de API do OpenWeatherMap para obter os dados climáticos. Se ainda não tem, você pode obter uma chave gratuita no site do [OpenWeatherMap](https://openweathermap.org/api).
+
+### Passos para rodar o aplicativo
+
+1. **Baixar e configurar o projeto**:
+   - Baixe o código-fonte ou clone o repositório para o seu ambiente de desenvolvimento.
+   - Adicione a chave da API OpenWeatherMap na classe `AtmosAppApi`. Substitua a variável `apiKey` pela sua chave pessoal:
+   
+     ```java
+     private static final String API_KEY = "SUA_CHAVE_DE_API";
+     ```
+
+2. **Compilar e rodar**:
+   - Compile o projeto utilizando o comando:
+
+     ```bash
+     javac -cp ".;json-simple-1.1.1.jar" AtmosAppGui.java AtmosAppApi.java AppLauncher.java
+     ```
+
+   - Execute o aplicativo com o comando:
+
+     ```bash
+     java -cp ".;json-simple-1.1.1.jar" AppLauncher
+     ```
+
+3. **Interação com o aplicativo**:
+   - Ao iniciar o aplicativo, uma janela gráfica será exibida.
+   - Digite o nome de uma cidade e clique no botão "Buscar".
+   - A previsão do tempo será exibida, incluindo temperatura, condição climática, umidade e velocidade do vento.
+
+### Exemplo de Teste
+- **Cidade**: Tokyo
+- **Resultado Esperado**: A janela exibirá informações como a temperatura de Tokyo, condição climática (por exemplo, "nuvens quebradas"), umidade e vento.
+
+## Observações
+
+- Certifique-se de que a sua chave de API do OpenWeatherMap está configurada corretamente.
+- A API do OpenWeatherMap pode ter limitações de chamadas dependendo do seu plano (grátis ou pago).
+
+## Contribuições
+
+Se você deseja contribuir para o projeto, sinta-se à vontade para abrir um **pull request**. Todas as contribuições são bem-vindas!
+
+---
+
+Obrigado por usar o **Atmos**!
