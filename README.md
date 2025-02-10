@@ -51,17 +51,18 @@ Veja o **Atmos** em funcionamento:
 
 A equipe por trás do **Atmos** é composta por profissionais dedicados, cada um contribuindo com sua expertise para o sucesso deste projeto:
 
-- **Maxwell** – Programação e Interface (Front-end)  
+- [**Maxwell**](https://github.com/MaxwellMaciel) – Programação e Interface (Front-end)  
   _(Responsável pelo desenvolvimento da interface do usuário, garantindo uma navegação intuitiva e uma experiência fluida.)_
 
-- **Gabriel** – Programação da API  
+- [**Gabriel**](https://github.com/gabrielviniciussc) – Programação da API  
   _(Responsável pela integração da API e por garantir que as previsões climáticas sejam precisas e atualizadas em tempo real.)_
 
-- **Victor** – Diagramas  
+- [**Victor**](https://github.com/Victor0041) – Diagramas  
   _(Responsável pela criação dos diagramas e fluxos do sistema, auxiliando na visualização e organização do projeto.)_
 
-- **Thaylize** – Design, Gerenciamento e Organização Visual do Repositório  
+- [**Thaylize**](https://github.com/thaylizesant0s) – Design, Gerenciamento e Organização Visual do Repositório  
   _(Responsável pela estética do projeto, organização das pastas e pela manutenção da consistência visual em todo o repositório.)_
+
 
 ---
 
